@@ -21,12 +21,7 @@ public class InMemoryArchiveHistoryOrderRepository implements OrderRepository{
     }
 
     private void init(){
-        Product product = new Drink("1","Cocacola");
-        Product product1= new Desert("2", "Flan");
-        Order order = new Order("1","Samuel");
-        order.addNewProduct(product);
-        order.addNewProduct(product1);
-        this.orderList.add(order);
+
     };
 
     public String tamany(){

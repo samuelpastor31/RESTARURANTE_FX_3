@@ -103,7 +103,7 @@ public class VistaNuevoPedidoControler implements Initializable {
             return;
         }
         try {
-            Order order = new Order(inMemoryArchiveHistoryOrderRepository.tamany()+1, textFieldNombre.getText());
+            Order order = new Order(inMemoryArchiveHistoryOrderRepository.tamany(), textFieldNombre.getText());
             for (Product product : listViewPedidos.getSelectionModel().getSelectedItems()) {
                 order.addNewProduct(product);
             }
@@ -113,7 +113,7 @@ public class VistaNuevoPedidoControler implements Initializable {
                 order.setCreatedOn(LocalDateTime.now());
             }
             inMemoryPendingOrderRepository.add(order);
-            System.out.println("Pedido añadido correctamente");
+            mostrarAlerta("Pedido creado correctamente");
 
             atras(event);
         } catch (Exception e) {
@@ -122,8 +122,8 @@ public class VistaNuevoPedidoControler implements Initializable {
     }
 
     private void mostrarAlerta(String mensaje) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setHeaderText(null);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setHeaderText("RESTAURANTE");
         alert.setContentText(mensaje);
         alert.showAndWait();
     }

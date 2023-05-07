@@ -14,10 +14,14 @@ public class InMemoryPendingOrderRepository extends InMemoryArchiveHistoryOrderR
 
     public InMemoryPendingOrderRepository() {
         super();
+        init();
     }
 
     private void init(){
-
+        Product product = new Drink("0","Cocacola");
+        Order order = new Order("0","Samuel");
+        order.addNewProduct(product);
+        this.orderList.add(order);
     }
     @Override
     public void add(Order order) {

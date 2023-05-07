@@ -58,9 +58,12 @@ public class VistaPedidosPendientesControler implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         listViewPedidos.setItems(getData());
         botonPrepararPedido.setDisable(true);
+        botonCancelarPedido.setDisable(true);
         if (listViewPedidos.getItems().size()>0){
             botonPrepararPedido.setDisable(false);
+            botonCancelarPedido.setDisable(false);
         }
+
 
 
     }
@@ -77,6 +80,18 @@ public class VistaPedidosPendientesControler implements Initializable {
         listViewPedidos.refresh();
         mostrarAlerta("Pedido servido");
 
+    }
+
+    @FXML
+    void cancelarPedido(){
+        Order pedidoSeleccionado = listViewPedidos.getSelectionModel().getSelectedItem();
+        if (pedidoSeleccionado != null) {
+            listViewPedidos.getSelectionModel().getSelectedItems().get(0).setCanceled("Pedido cancelado");
+            inMemoryArchiveHistoryOrderRepository.add(listViewPedidos.getSelectionModel().getSelectedItems().get(0));
+            inMemoryPendingOrderRepository.remove(listViewPedidos.getSelectionModel().getSelectedItems().get(0));
+            listViewPedidos.refresh();
+            mostrarAlerta("Pedido cancelado");
+        }
     }
 
     @FXML
@@ -125,5 +140,7 @@ public class VistaPedidosPendientesControler implements Initializable {
         alert.setContentText(mensaje);
         alert.showAndWait();
     }
+
+
 
 }
