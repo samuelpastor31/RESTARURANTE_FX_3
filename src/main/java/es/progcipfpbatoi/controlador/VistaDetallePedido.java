@@ -42,6 +42,9 @@ public class VistaDetallePedido implements Initializable {
     @FXML
     private Label codigo;
 
+    @FXML
+    private Label estado;
+
     private Initializable padreControler;
 
     private String vistaPadre;
@@ -64,6 +67,7 @@ public class VistaDetallePedido implements Initializable {
         cliente.setText(pedido.get(0).getClientName());
         fecha.setText(pedido.get(0).getFormattedCreatedOn());
         codigo.setText(pedido.get(0).getCode());
+        estado.setText(pedido.get(0).getStatus());
         for (int i = 0; i < pedido.size() ; i++) {
             listViewPedidos.setItems(getData(i));
         }
