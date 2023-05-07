@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fde70d2b-4cbc-4910-af95-016ebcfdff91" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/controlador/ChangeScene.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/controlador/VistaDetallePedido.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/controlador/VistaHistorialPedidosControler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/controlador/VistaNuevoPedidoControler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/controlador/VistaPedidosPendientesControler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/controlador/VistaPrincipalControler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/exceptions/AlreadyServedOrderException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/exceptions/DiscountNotApplicableException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/exceptions/EmptyQueueException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/exceptions/FullQueueException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/exceptions/NotCancelableOrderException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/exceptions/NotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo/entidades/Order.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo/entidades/producttypes/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo/entidades/producttypes/Status.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo/entidades/producttypes/types/Characteristic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo/entidades/producttypes/types/Desert.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo/entidades/producttypes/types/Drink.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo/entidades/producttypes/types/Sandwich.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo/entidades/producttypes/types/Size.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo/entidades/producttypes/types/Starter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo/repositorios/InMemoryArchiveHistoryOrderRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo/repositorios/InMemoryPendingOrderRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo/repositorios/InMemoryProductRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo/repositorios/OrderRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo/repositorios/ProductRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo/repositorios/QueueOrderRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/utils/AnsiColor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/utils/DateConversion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/utils/GestorIO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/utils/Validator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/vista/vista_detalle_pedido.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/vista/vista_historial_pedidos.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/vista/vista_nuevo_pedido.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/vista/vista_pedidos_pendientes.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/vista/vista_principal.fxml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="workspaceImportEnabled" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2OR0RsMF7XAPpsHnVIwKvZUCey2" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/batoi/IdeaProjects2023/RESTARURANTE_FX_1/src/main/java/es/progcipfpbatoi&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi" />
+      <recent name="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="es.progcipfpbatoi.controlador" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="es.progcipfpbatoi.App" />
+      <module name="helloFX" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="es.progcipfpbatoi.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="PRG-UD11-Plantilla" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="PRG-UD11-Plantilla" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.App" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fde70d2b-4cbc-4910-af95-016ebcfdff91" name="Changes" comment="" />
+      <created>1681508083874</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1681508083874</updated>
+    </task>
+    <servers />
+  </component>
+</project>

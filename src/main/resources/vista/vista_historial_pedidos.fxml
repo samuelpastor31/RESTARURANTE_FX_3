@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="184.0" layoutY="29.0" text="HISTORIAL DE PEDIDOS" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <ListView fx:id="listViewHistorialPedidos" layoutX="29.0" layoutY="68.0" onMouseClicked="#verDetalle" prefHeight="344.0" prefWidth="643.0" />
+      <Button fx:id="botonAtras" layoutX="260.0" layoutY="445.0" mnemonicParsing="false" onMouseClicked="#atras" prefHeight="30.0" prefWidth="200.0" text="Atras" />
+   </children>
+</AnchorPane>
