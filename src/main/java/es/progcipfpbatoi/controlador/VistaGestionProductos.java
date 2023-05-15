@@ -52,8 +52,13 @@ public class VistaGestionProductos implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        productListView.setItems(getData());
+        ObservableList<Product> products = FXCollections.observableArrayList(getData());
+
+        products.sort(Comparator.comparing(Product::getTipo).thenComparing(Product::getCod));
+
+        productListView.setItems(products);
         desactivarButtons();
+
         productListView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
                 activarButtons();
@@ -73,7 +78,7 @@ public class VistaGestionProductos implements Initializable {
 
             ObservableList<Product> productsAlta = productListView.getItems();
             productsAlta.remove(selectedProduct);
-            AlertMessages.mostrarAlertError("Producto dado de baja");
+            AlertMessages.mostrarAlertWarning("Producto dado de baja");
 
             desactivarButtons();
         }catch (DatabaseErrorException ex) {

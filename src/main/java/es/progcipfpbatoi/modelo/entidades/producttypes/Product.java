@@ -29,11 +29,15 @@ public abstract class Product {
 
     public abstract String getTipo();
 
-    @Override
-    public String toString() {
-        return getName()+" Tipo : "+getTipo()+", Descuento: "+getPercentageDiscount()+"%, Precio: "+getPrizeWithoutDiscount()+"€, Precio con IVA: "+getPrize()+"€"+" Dado alta: "+isDadoAlta();
+    public float getDiscount() {
+        return discount;
     }
 
+    @Override
+    public String toString() {
+        return String.format("%s Tipo: %s, Descuento: %.2f%%, Precio: %.2f€, Precio con IVA: %.2f€, Dado alta: %s",
+                getName(), getTipo(), getPercentageDiscount(), getPrizeWithoutDiscount(), getPrize(), isDadoAlta());
+    }
     public boolean isDadoAlta() {
         return dadoAlta;
     }

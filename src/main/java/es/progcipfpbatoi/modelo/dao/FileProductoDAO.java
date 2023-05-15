@@ -177,7 +177,7 @@ public class FileProductoDAO implements ProductosDAO{
         fields.add(String.valueOf(product.getTipo()));
         fields.add(String.valueOf(product.getName()));
         fields.add(String.valueOf(product.getPrize()));
-        fields.add(String.valueOf(product.getPercentageDiscount()));
+        fields.add(String.valueOf(product.getDiscount()));
         fields.add(String.valueOf(product.getVat()));
         fields.add(String.valueOf(product.isDadoAlta()));
         if (product instanceof Drink) {

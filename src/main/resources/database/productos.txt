@@ -1,7 +1,7 @@
-1;SANDWICH;lechugas;4.0;0.0;0.0;true
-2;DRINK;Coca-cola;-11.125;1000.0;0.1;true;true;NORMAL
-3;DESERT;Pastel de Queso;2.9282002;0.0;0.21;false
+1;SANDWICH;lechugas;3.2;0.2;0.0;true
+2;DRINK;Coca-cola;2.25;0.2;0.1;true;true;NORMAL
+3;DESERT;Pastel de Queso;5.1874857;0.0;0.21;true
 4;DRINK;Mentira;4.0;0.0;0.0;true;false;NORMAL
 5;SANDWICH;hola;3.0;0.0;0.0;true
 6;STARTER;Cacahuets;4.0;0.0;0.0;true
-7;DRINK;Whiskey con cola;-40.459503;1000.0;0.0;true;true;NORMAL
+7;DRINK;Whiskey con cola;3.5;0.0;0.0;false;true;NORMAL
