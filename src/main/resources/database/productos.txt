@@ -1,0 +1,7 @@
+1;SANDWICH;lechuga,tomate y mayonesa;3.25;0.2;0.21;true
+2;DRINK;Coca-cola;1.25;0.1;0.1;true;true;NORMAL
+3;DESERT;Pastel de Queso;2;0.0;0.21;false
+4;DRINK;Mentira;4.0;0.0;0.0;true;false;NORMAL
+5;SANDWICH;hola;3.0;0.0;0.0;true
+6;STARTER;Cacahuets;-18.0;1000.0;0.0;true
+7;DRINK;Whiskey con cola;4.995;0.1;0.0;true;true;NORMAL

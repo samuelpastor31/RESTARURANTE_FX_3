@@ -1,17 +1,13 @@
 package es.progcipfpbatoi.controlador;
 
 import es.progcipfpbatoi.exceptions.DatabaseErrorException;
-import es.progcipfpbatoi.modelo.entidades.producttypes.types.Desert;
-import es.progcipfpbatoi.modelo.entidades.producttypes.types.Drink;
-import es.progcipfpbatoi.modelo.entidades.producttypes.types.Sandwich;
-import es.progcipfpbatoi.modelo.entidades.producttypes.types.Starter;
+import es.progcipfpbatoi.modelo.entidades.producttypes.types.*;
 import es.progcipfpbatoi.modelo.repositorios.InMemoryArchiveHistoryOrderRepository;
 import es.progcipfpbatoi.modelo.repositorios.InMemoryPendingOrderRepository;
 import es.progcipfpbatoi.modelo.repositorios.ProductRepository;
 import es.progcipfpbatoi.utils.AlertMessages;
 import es.progcipfpbatoi.utils.Validator;
 import javafx.collections.FXCollections;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -54,14 +50,15 @@ public class VistaNuevoProducto implements Initializable {
     }
 
     @FXML
-    public void confirm(ActionEvent event) throws DatabaseErrorException {
-        if ( isAnyFieldInBlank() ) return;
-        if ( isAnyFieldRegexInvalid() ) return;
-        if ( isNameDuplicated() ) return;
+    public void confirmar(MouseEvent event) throws DatabaseErrorException {
+        if ( algunFieldVacio() ) return;
+        if ( algunFieldIncorrecto() ) return;
+        if ( nombreDuplicado() ) return;
         createProduct();
+        atras(event);
     }
 
-    private boolean isNameDuplicated() {
+    private boolean nombreDuplicado() {
         if ( this.productRepository.isNameExists( name.getText() ) ) {
             AlertMessages.mostrarAlertError( "Ya existe la descripcion" );
             return true;
@@ -69,7 +66,7 @@ public class VistaNuevoProducto implements Initializable {
         return false;
     }
 
-    private boolean isAnyFieldRegexInvalid() {
+    private boolean algunFieldIncorrecto() {
         if ( !Validator.isValidProductPrize( prize.getText() ) ) {
             mostrarAlertaError( "Precio inválido" );
             return true;
@@ -98,7 +95,7 @@ public class VistaNuevoProducto implements Initializable {
 
     private void createProduct() throws DatabaseErrorException {
         if ( typeSelector.getSelectionModel().getSelectedItem().equals( Desert.class.getSimpleName() ) ) {
-            Desert desertNew = new Desert(String.valueOf(this.productRepository.findAll().size()+1), name.getText(),Float.valueOf(prize.getText()),Float.valueOf(discount.getText()),Float.valueOf(tax.getText()),true);
+            Desert desertNew = new Desert(String.valueOf(this.productRepository.findAll().size()+1), name.getText(),Float.valueOf(prize.getText()),Float.valueOf(discount.getText())/10000,Float.valueOf(tax.getText()),true);
             try {
                 this.productRepository.save( desertNew );
             } catch ( DatabaseErrorException e ) {
@@ -107,7 +104,7 @@ public class VistaNuevoProducto implements Initializable {
                 throw new RuntimeException(e);
             }
         } else if ( typeSelector.getSelectionModel().getSelectedItem().equals( Sandwich.class.getSimpleName() ) ) {
-            Sandwich sandwichNew = new Sandwich(String.valueOf(this.productRepository.findAll().size()+1), name.getText(),Float.valueOf(prize.getText()),Float.valueOf(discount.getText()),Float.valueOf(tax.getText()),true);
+            Sandwich sandwichNew = new Sandwich(String.valueOf(this.productRepository.findAll().size()+1), name.getText(),Float.valueOf(prize.getText()),Float.valueOf(discount.getText())/10000,Float.valueOf(tax.getText()),true);
             try {
                 this.productRepository.save( sandwichNew );
             } catch ( DatabaseErrorException e ) {
@@ -116,7 +113,7 @@ public class VistaNuevoProducto implements Initializable {
                 throw new RuntimeException(e);
             }
         } else if ( typeSelector.getSelectionModel().getSelectedItem().equals( Drink.class.getSimpleName() ) ) {
-            Drink drinkNew = new Drink(String.valueOf(this.productRepository.findAll().size()+1), name.getText(),Float.valueOf(prize.getText()),Float.valueOf(discount.getText()),Float.valueOf(tax.getText()),true);
+            Drink drinkNew = new Drink(String.valueOf(this.productRepository.findAll().size()+1), name.getText(),Float.valueOf(prize.getText()),Float.valueOf(discount.getText())/10000,Float.valueOf(tax.getText()),true,true, Size.NORMAL);
             try {
                 this.productRepository.save( drinkNew );
             } catch ( DatabaseErrorException e ) {
@@ -125,7 +122,7 @@ public class VistaNuevoProducto implements Initializable {
                 throw new RuntimeException(e);
             }
         } else if ( typeSelector.getSelectionModel().getSelectedItem().equals( Starter.class.getSimpleName() ) ) {
-            Starter starterNew = new Starter(String.valueOf(this.productRepository.findAll().size()+1), name.getText(),Float.valueOf(prize.getText()),Float.valueOf(discount.getText()),Float.valueOf(tax.getText()),true);
+            Starter starterNew = new Starter(String.valueOf(this.productRepository.findAll().size()+1), name.getText(),Float.valueOf(prize.getText()),Float.valueOf(discount.getText())/10000,Float.valueOf(tax.getText()),true);
             try {
                 this.productRepository.save( starterNew );
             } catch (DatabaseErrorException | IOException e ) {
@@ -134,7 +131,7 @@ public class VistaNuevoProducto implements Initializable {
         }
     }
 
-    private boolean isAnyFieldInBlank() {
+    private boolean algunFieldVacio() {
         if ( typeSelector.getSelectionModel().getSelectedItem() == null ) {
             AlertMessages.mostrarAlertError( "Debe seleccionar un tipo" );
             return true;

@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="218.0" layoutY="39.0" text="NUEVO PRODUCTO" textAlignment="CENTER">
@@ -16,7 +15,7 @@
          </font>
       </Label>
       <Button fx:id="botonAtras" layoutX="383.0" layoutY="448.0" mnemonicParsing="false" onMouseClicked="#atras" prefHeight="30.0" prefWidth="200.0" text="Atras" />
-      <Button fx:id="botonConfirmar" layoutX="118.0" layoutY="448.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" text="Confirmar" />
+      <Button fx:id="botonConfirmar" layoutX="118.0" layoutY="448.0" mnemonicParsing="false" onMouseClicked="#confirmar" prefHeight="30.0" prefWidth="200.0" text="Confirmar" />
       <Label layoutX="100.0" layoutY="100.0" text="Tipo" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="25.0" />
@@ -42,11 +41,11 @@
             <Font name="System Bold" size="25.0" />
          </font>
       </Label>
-      <ComboBox layoutX="351.0" layoutY="103.0" prefHeight="24.0" prefWidth="174.0" />
-      <TextField layoutX="351.0" layoutY="163.0" prefHeight="24.0" prefWidth="174.0" />
-      <TextField layoutX="350.0" layoutY="223.0" prefHeight="24.0" prefWidth="174.0" />
-      <TextField layoutX="350.0" layoutY="283.0" prefHeight="24.0" prefWidth="174.0" />
-      <TextField layoutX="350.0" layoutY="343.0" prefHeight="24.0" prefWidth="174.0" />
+      <ComboBox fx:id="typeSelector" layoutX="351.0" layoutY="103.0" prefHeight="24.0" prefWidth="174.0" />
+      <TextField fx:id="name" layoutX="351.0" layoutY="163.0" prefHeight="24.0" prefWidth="174.0" />
+      <TextField fx:id="prize" layoutX="350.0" layoutY="223.0" prefHeight="24.0" prefWidth="174.0" />
+      <TextField fx:id="discount" layoutX="350.0" layoutY="283.0" prefHeight="24.0" prefWidth="174.0" />
+      <TextField fx:id="tax" layoutX="350.0" layoutY="343.0" prefHeight="24.0" prefWidth="174.0" />
       <Label layoutX="539.0" layoutY="220.0" text="€" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="25.0" />

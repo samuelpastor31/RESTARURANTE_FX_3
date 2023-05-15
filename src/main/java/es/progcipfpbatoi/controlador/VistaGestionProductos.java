@@ -6,6 +6,7 @@ import es.progcipfpbatoi.modelo.entidades.producttypes.Product;
 import es.progcipfpbatoi.modelo.repositorios.InMemoryArchiveHistoryOrderRepository;
 import es.progcipfpbatoi.modelo.repositorios.InMemoryPendingOrderRepository;
 import es.progcipfpbatoi.modelo.repositorios.ProductRepository;
+import es.progcipfpbatoi.utils.AlertMessages;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -72,7 +73,7 @@ public class VistaGestionProductos implements Initializable {
 
             ObservableList<Product> productsAlta = productListView.getItems();
             productsAlta.remove(selectedProduct);
-            mostrarAlerta("Producto dado de baja");
+            AlertMessages.mostrarAlertError("Producto dado de baja");
 
             desactivarButtons();
         }catch (DatabaseErrorException ex) {
@@ -80,20 +81,6 @@ public class VistaGestionProductos implements Initializable {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    private void mostrarAlerta(String mensaje) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setHeaderText(null);
-        alert.setContentText(mensaje);
-        alert.showAndWait();
-    }
-
-    private void mostrarAlertaError(String mensaje) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setHeaderText(null);
-        alert.setContentText(mensaje);
-        alert.showAndWait();
     }
     private void activarButtons(){
         botonVerDetalle.setDisable(false);
@@ -109,7 +96,7 @@ public class VistaGestionProductos implements Initializable {
             return FXCollections.observableArrayList(productRepository.findAllAvailable());
         }catch ( DatabaseErrorException ex) {
             ex.printStackTrace();
-            mostrarAlertaError(ex.getMessage());
+            AlertMessages.mostrarAlertError(ex.getMessage());
             return null;
         }
     }
