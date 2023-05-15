@@ -2,7 +2,7 @@ package es.progcipfpbatoi.controlador;
 
 import es.progcipfpbatoi.modelo.repositorios.InMemoryArchiveHistoryOrderRepository;
 import es.progcipfpbatoi.modelo.repositorios.InMemoryPendingOrderRepository;
-import es.progcipfpbatoi.modelo.repositorios.InMemoryProductRepository;
+import es.progcipfpbatoi.modelo.repositorios.ProductRepository;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -22,13 +22,16 @@ public class VistaPrincipalControler implements Initializable {
     @FXML
     private Button HistorialPedidosButton;
 
+    @FXML
+    private Button GestionDePedidosButton;
+
     private InMemoryPendingOrderRepository inMemoryPendingOrderRepository;
-    private InMemoryProductRepository inMemoryProductRepository;
+    private ProductRepository productRepository;
     private InMemoryArchiveHistoryOrderRepository inMemoryArchiveHistoryOrderRepository;
 
-    public VistaPrincipalControler(InMemoryPendingOrderRepository inMemoryPendingOrderRepository,InMemoryProductRepository inMemoryProductRepository, InMemoryArchiveHistoryOrderRepository inMemoryArchiveHistoryOrderRepository) {
+    public VistaPrincipalControler(InMemoryPendingOrderRepository inMemoryPendingOrderRepository, ProductRepository productRepository, InMemoryArchiveHistoryOrderRepository inMemoryArchiveHistoryOrderRepository) {
         this.inMemoryPendingOrderRepository =inMemoryPendingOrderRepository;
-        this.inMemoryProductRepository = inMemoryProductRepository;
+        this.productRepository = productRepository;
         this.inMemoryArchiveHistoryOrderRepository = inMemoryArchiveHistoryOrderRepository;
     }
 
@@ -42,8 +45,20 @@ public class VistaPrincipalControler implements Initializable {
 
         try {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            VistaPedidosPendientesControler vistaPedidosPendientesControler = new VistaPedidosPendientesControler(inMemoryPendingOrderRepository, inMemoryProductRepository, inMemoryArchiveHistoryOrderRepository);
+            VistaPedidosPendientesControler vistaPedidosPendientesControler = new VistaPedidosPendientesControler(inMemoryPendingOrderRepository, productRepository, inMemoryArchiveHistoryOrderRepository);
             ChangeScene.change(stage, vistaPedidosPendientesControler, "/vista/vista_pedidos_pendientes.fxml");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    @FXML
+    void vistaGestionProductos(MouseEvent event){
+
+        try {
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            VistaGestionProductos vistaGestionProductos = new VistaGestionProductos(productRepository, inMemoryArchiveHistoryOrderRepository, inMemoryPendingOrderRepository);
+            ChangeScene.change(stage, vistaGestionProductos, "/vista/vista_gestion_productos.fxml");
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -54,7 +69,7 @@ public class VistaPrincipalControler implements Initializable {
 
         try {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-         VistaHistorialPedidosControler vistaHistorialPedidosControler = new VistaHistorialPedidosControler(inMemoryProductRepository,inMemoryArchiveHistoryOrderRepository, inMemoryPendingOrderRepository);
+         VistaHistorialPedidosControler vistaHistorialPedidosControler = new VistaHistorialPedidosControler(productRepository,inMemoryArchiveHistoryOrderRepository, inMemoryPendingOrderRepository);
             ChangeScene.change(stage, vistaHistorialPedidosControler, "/vista/vista_historial_pedidos.fxml");
         } catch (IOException ex) {
             ex.printStackTrace();

@@ -14,29 +14,65 @@ public abstract class Product {
 
     private String prefixCode;
 
-    public Product(String cod, String name, float prize, float disccount, float vat, String prefixCode) {
-        this.cod = prefixCode + cod;
+    private boolean dadoAlta;
+
+    private String tipo;
+
+    public Product(String cod, String name, float prize, float disccount, float vat,boolean dadoAlta) {
+        this.cod =  cod;
         this.name = name;
         this.prize = prize;
         this.discount = disccount;
         this.vat = vat;
-        this.prefixCode = prefixCode;
+        this.dadoAlta = dadoAlta;
     }
 
-    public Product(String cod, String name, String prefixCode) {
-        this(cod, name, 1.25f, 0f, 0.1f, prefixCode);
-    }
-    public Product(String cod, String name, String prefixCode, float discount) {
-        this(cod, name, 1.25f, discount, 0.1f, prefixCode);
-    }
+    public abstract String getTipo();
 
     @Override
     public String toString() {
-        return getName()+", Descuento: "+getPercentageDiscount()+"%, Precio: "+getPrizeWithoutDiscount()+"€, Precio con IVA: "+getPrize()+"€";
+        return getName()+" Tipo : "+getTipo()+", Descuento: "+getPercentageDiscount()+"%, Precio: "+getPrizeWithoutDiscount()+"€, Precio con IVA: "+getPrize()+"€"+" Dado alta: "+isDadoAlta();
+    }
+
+    public boolean isDadoAlta() {
+        return dadoAlta;
+    }
+
+
+    public void setCod(String cod) {
+        this.cod = cod;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPrize(float prize) {
+        this.prize = prize;
+    }
+
+    public void setVat(float vat) {
+        this.vat = vat;
+    }
+
+    public void setPrefixCode(String prefixCode) {
+        this.prefixCode = prefixCode;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public float getVat() {
+        return vat;
     }
 
     public String getCod() {
         return this.cod;
+    }
+
+    public void setDadoAlta(boolean dadoAlta) {
+        this.dadoAlta = dadoAlta;
     }
 
     public float getPrize() {
@@ -67,5 +103,20 @@ public abstract class Product {
 
     public String getExtras() {
         return "";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Product product = (Product) o;
+
+        return cod.equals(product.cod);
+    }
+
+    @Override
+    public int hashCode() {
+        return name.hashCode();
     }
 }

@@ -10,12 +10,9 @@ public class Desert extends Product {
 
    private HashSet<Characteristic> characteristic;
 
-    public Desert(String cod, String name, Characteristic... characteristic) {
-        this(cod, name, 0, characteristic);
-    }
 
-    public Desert(String cod, String name, float discount, Characteristic... characteristic) {
-        super(cod, name, "p", discount);
+    public Desert(String cod, String name,float precio, float discount,float iva,boolean dadoAlta, Characteristic... characteristic) {
+        super(cod, name, precio, discount,iva,dadoAlta);
         this.characteristic = new HashSet<>(List.of(characteristic));
         if (discount != 0) {
             throw new DiscountNotApplicableException();
@@ -23,8 +20,18 @@ public class Desert extends Product {
     }
 
     @Override
+    public String getTipo() {
+        return "DESERT";
+    }
+
+    @Override
     public String getExtras() {
         return String.format("%s", characteristic);
     }
 
+    @Override
+    public String toString() {
+        return super.toString()+
+                ", " + characteristic;
+    }
 }

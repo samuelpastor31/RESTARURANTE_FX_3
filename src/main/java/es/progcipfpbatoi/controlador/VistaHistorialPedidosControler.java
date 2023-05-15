@@ -1,10 +1,9 @@
 package es.progcipfpbatoi.controlador;
 
 import es.progcipfpbatoi.modelo.entidades.Order;
-import es.progcipfpbatoi.modelo.entidades.producttypes.Product;
 import es.progcipfpbatoi.modelo.repositorios.InMemoryArchiveHistoryOrderRepository;
 import es.progcipfpbatoi.modelo.repositorios.InMemoryPendingOrderRepository;
-import es.progcipfpbatoi.modelo.repositorios.InMemoryProductRepository;
+import es.progcipfpbatoi.modelo.repositorios.ProductRepository;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -29,11 +28,11 @@ public class VistaHistorialPedidosControler implements Initializable {
     private Button botonAtras;
 
     private InMemoryPendingOrderRepository inMemoryPendingOrderRepository;
-    private InMemoryProductRepository inMemoryProductRepository;
+    private ProductRepository productRepository;
     private InMemoryArchiveHistoryOrderRepository inMemoryArchiveHistoryOrderRepository;
 
-    public VistaHistorialPedidosControler( InMemoryProductRepository inMemoryProductRepository, InMemoryArchiveHistoryOrderRepository inMemoryArchiveHistoryOrderRepository, InMemoryPendingOrderRepository inMemoryPendingOrderRepository) {
-        this.inMemoryProductRepository = inMemoryProductRepository;
+    public VistaHistorialPedidosControler(ProductRepository productRepository, InMemoryArchiveHistoryOrderRepository inMemoryArchiveHistoryOrderRepository, InMemoryPendingOrderRepository inMemoryPendingOrderRepository) {
+        this.productRepository = productRepository;
         this.inMemoryArchiveHistoryOrderRepository = inMemoryArchiveHistoryOrderRepository;
         this.inMemoryPendingOrderRepository = inMemoryPendingOrderRepository;
     }
@@ -52,7 +51,7 @@ public class VistaHistorialPedidosControler implements Initializable {
 
         try {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            VistaPrincipalControler vistaPrincipalControler = new VistaPrincipalControler(inMemoryPendingOrderRepository,inMemoryProductRepository,inMemoryArchiveHistoryOrderRepository);
+            VistaPrincipalControler vistaPrincipalControler = new VistaPrincipalControler(inMemoryPendingOrderRepository, productRepository,inMemoryArchiveHistoryOrderRepository);
             ChangeScene.change(stage, vistaPrincipalControler, "/vista/vista_principal.fxml");
         } catch (IOException ex) {
             ex.printStackTrace();

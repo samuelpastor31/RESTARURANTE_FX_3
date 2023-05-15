@@ -5,6 +5,7 @@ import es.progcipfpbatoi.exceptions.FullQueueException;
 import es.progcipfpbatoi.modelo.entidades.Order;
 import es.progcipfpbatoi.modelo.entidades.producttypes.Product;
 import es.progcipfpbatoi.modelo.entidades.producttypes.types.Drink;
+import es.progcipfpbatoi.modelo.entidades.producttypes.types.Size;
 
 import java.util.ArrayList;
 
@@ -18,7 +19,7 @@ public class InMemoryPendingOrderRepository extends InMemoryArchiveHistoryOrderR
     }
 
     private void init(){
-        Product product = new Drink("0","Cocacola");
+        Product product = new Drink("0","Cocacola",1,1,0,true,true, Size.NORMAL);
         Order order = new Order("0","Samuel");
         order.addNewProduct(product);
         this.orderList.add(order);

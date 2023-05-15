@@ -5,12 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fde70d2b-4cbc-4910-af95-016ebcfdff91" name="Changes" comment="acabado">
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/controlador/VistaDetalleProducto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/controlador/VistaGestionProductos.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/controlador/VistaNuevoProducto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/exceptions/CategoryErrorException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/exceptions/DatabaseErrorException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo/dao/FileProductoDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo/dao/InMemoryProductoDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo/dao/ProductosDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/utils/AlertMessages.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/vista/vista_detalle_producto.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/vista/vista_gestion_productos.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/vista/vista_nuevo_producto.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/controlador/VistaDetallePedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/controlador/VistaDetallePedido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/controlador/VistaHistorialPedidosControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/controlador/VistaHistorialPedidosControler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/controlador/VistaNuevoPedidoControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/controlador/VistaNuevoPedidoControler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/controlador/VistaPedidosPendientesControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/controlador/VistaPedidosPendientesControler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo/repositorios/InMemoryArchiveHistoryOrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo/repositorios/InMemoryArchiveHistoryOrderRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/controlador/VistaPrincipalControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/controlador/VistaPrincipalControler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo/entidades/producttypes/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo/entidades/producttypes/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo/entidades/producttypes/types/Characteristic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo/entidades/producttypes/types/Characteristic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo/entidades/producttypes/types/Desert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo/entidades/producttypes/types/Desert.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo/entidades/producttypes/types/Drink.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo/entidades/producttypes/types/Drink.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo/entidades/producttypes/types/Sandwich.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo/entidades/producttypes/types/Sandwich.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo/entidades/producttypes/types/Starter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo/entidades/producttypes/types/Starter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo/repositorios/InMemoryPendingOrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo/repositorios/InMemoryPendingOrderRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vista/vista_pedidos_pendientes.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vista/vista_pedidos_pendientes.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo/repositorios/InMemoryProductRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo/repositorios/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo/repositorios/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/utils/Validator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/utils/Validator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vista/vista_principal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vista/vista_principal.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,16 +73,20 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/batoi/IdeaProjects2023/RESTARURANTE_FX_1/src/main/java/es/progcipfpbatoi&quot;
+    &quot;last_opened_file_path&quot;: &quot;/home/batoi/IdeaProjects2023/RESTARURANTE_FX_2/src/main/resources/database&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi" />
+      <recent name="$PROJECT_DIR$/src/main/resources/database" />
       <recent name="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo" />
+      <recent name="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi" />
     </key>
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="es.progcipfpbatoi.controlador" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="es.progcipfpbatoi.exceptions" />
     </key>
   </component>
   <component name="RunManager">
@@ -152,7 +180,21 @@
       <option name="project" value="LOCAL" />
       <updated>1683490525848</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="acabado">
+      <created>1683494782569</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1683494782569</updated>
+    </task>
+    <task id="LOCAL-00009" summary="acabado">
+      <created>1683495084789</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1683495084789</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

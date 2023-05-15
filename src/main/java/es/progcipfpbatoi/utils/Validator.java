@@ -6,7 +6,10 @@ public class Validator {
 
     public final static String PRODUCT_CODE_REGEXP = "[b|e|m|p|]\\d{1,10}";
 
-    public final static String ORDER_CODE_REGEXP = "o\\d{1,10}";
+    public final static String ORDER_CODE_REGEXP    = "o\\d{1,10}";
+    public final static String PRODUCT_PRIZE_REGEXP = "\\d+([,.]\\d+){0,2}?";
+    public final static String PRODUCT_DISCOUNT_REGEXP = "\\b([0-9]|[1-9][0-9]|100)\\b";
+    public final static String PRODUCT_VAT_REGEXP = PRODUCT_DISCOUNT_REGEXP;
 
     public static boolean isValidateDate(String date) {
 
@@ -25,4 +28,21 @@ public class Validator {
 
     }
 
+    public static boolean isValidProductPrize(String productPrize) {
+
+        return productPrize.matches( PRODUCT_PRIZE_REGEXP );
+
+    }
+
+    public static boolean isValidProductDiscount(String productDiscount) {
+
+        return productDiscount.matches( PRODUCT_DISCOUNT_REGEXP );
+
+    }
+
+    public static boolean isValidProductVat(String productVat) {
+
+        return productVat.matches( PRODUCT_VAT_REGEXP );
+
+    }
 }

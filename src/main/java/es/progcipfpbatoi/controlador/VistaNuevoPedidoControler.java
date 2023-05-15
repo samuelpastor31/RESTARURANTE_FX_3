@@ -1,14 +1,11 @@
 package es.progcipfpbatoi.controlador;
 
+import es.progcipfpbatoi.exceptions.DatabaseErrorException;
 import es.progcipfpbatoi.modelo.entidades.Order;
 import es.progcipfpbatoi.modelo.entidades.producttypes.Product;
-import es.progcipfpbatoi.modelo.entidades.producttypes.types.Desert;
-import es.progcipfpbatoi.modelo.entidades.producttypes.types.Drink;
-import es.progcipfpbatoi.modelo.entidades.producttypes.types.Sandwich;
-import es.progcipfpbatoi.modelo.entidades.producttypes.types.Starter;
 import es.progcipfpbatoi.modelo.repositorios.InMemoryArchiveHistoryOrderRepository;
 import es.progcipfpbatoi.modelo.repositorios.InMemoryPendingOrderRepository;
-import es.progcipfpbatoi.modelo.repositorios.InMemoryProductRepository;
+import es.progcipfpbatoi.modelo.repositorios.ProductRepository;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -16,7 +13,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -46,29 +42,33 @@ public class VistaNuevoPedidoControler implements Initializable {
     private CheckBox checkBox;
 
     private InMemoryPendingOrderRepository inMemoryPendingOrderRepository;
-    private InMemoryProductRepository inMemoryProductRepository;
+    private ProductRepository productRepository;
     private InMemoryArchiveHistoryOrderRepository inMemoryArchiveHistoryOrderRepository;
 
 
-    public VistaNuevoPedidoControler(InMemoryProductRepository inMemoryProductRepository, InMemoryPendingOrderRepository inMemoryPendingOrderRepository,InMemoryArchiveHistoryOrderRepository inMemoryArchiveHistoryOrderRepository) {
-        this.inMemoryProductRepository = inMemoryProductRepository;
+    public VistaNuevoPedidoControler(ProductRepository productRepository, InMemoryPendingOrderRepository inMemoryPendingOrderRepository, InMemoryArchiveHistoryOrderRepository inMemoryArchiveHistoryOrderRepository) {
+        this.productRepository = productRepository;
         this.inMemoryPendingOrderRepository = inMemoryPendingOrderRepository;
         this.inMemoryArchiveHistoryOrderRepository = inMemoryArchiveHistoryOrderRepository;
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        listViewPedidos.setItems(getData());
-        listViewPedidos.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-        listViewPedidos.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            actualizarBotonConfirmar();
-        });
-        datePickerFecha.setEditable(false);
-        datePickerFecha.setOnMouseClicked(e -> {
-            if (!datePickerFecha.isEditable()) {
-                datePickerFecha.hide();
-            }
-        });
+        try {
+            listViewPedidos.setItems(getData());
+            listViewPedidos.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+            listViewPedidos.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+                actualizarBotonConfirmar();
+            });
+            datePickerFecha.setEditable(false);
+            datePickerFecha.setOnMouseClicked(e -> {
+                if (!datePickerFecha.isEditable()) {
+                    datePickerFecha.hide();
+                }
+            });
+        }catch (DatabaseErrorException ex) {
+            // Mostrar una alerta
+        }
     }
 
     @FXML
@@ -76,8 +76,8 @@ public class VistaNuevoPedidoControler implements Initializable {
         datePickerFecha.setEditable(true);
     }
 
-    private ObservableList<Product> getData() {
-        return FXCollections.observableArrayList(inMemoryProductRepository.findAll());
+    private ObservableList<Product> getData() throws DatabaseErrorException {
+        return FXCollections.observableArrayList(productRepository.findAll());
     }
 
     @FXML
@@ -85,7 +85,7 @@ public class VistaNuevoPedidoControler implements Initializable {
 
         try {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            VistaPedidosPendientesControler vistaPedidosPendientesControler = new VistaPedidosPendientesControler(inMemoryPendingOrderRepository, inMemoryProductRepository,inMemoryArchiveHistoryOrderRepository);
+            VistaPedidosPendientesControler vistaPedidosPendientesControler = new VistaPedidosPendientesControler(inMemoryPendingOrderRepository, productRepository,inMemoryArchiveHistoryOrderRepository);
             ChangeScene.change(stage, vistaPedidosPendientesControler, "/vista/vista_pedidos_pendientes.fxml");
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -103,7 +103,8 @@ public class VistaNuevoPedidoControler implements Initializable {
             return;
         }
         try {
-            Order order = new Order(inMemoryArchiveHistoryOrderRepository.tamany(), textFieldNombre.getText());
+
+            Order order = new Order(codActualizado(), textFieldNombre.getText());
             for (Product product : listViewPedidos.getSelectionModel().getSelectedItems()) {
                 order.addNewProduct(product);
             }
@@ -120,6 +121,12 @@ public class VistaNuevoPedidoControler implements Initializable {
             throw new RuntimeException(e);
         }
     }
+
+    private String codActualizado(){
+        return "" + (inMemoryPendingOrderRepository.size() + inMemoryArchiveHistoryOrderRepository.size());
+    }
+
+
 
     private void mostrarAlerta(String mensaje) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
