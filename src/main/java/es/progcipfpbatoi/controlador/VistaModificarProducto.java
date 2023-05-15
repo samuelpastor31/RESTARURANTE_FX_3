@@ -1,6 +1,7 @@
 package es.progcipfpbatoi.controlador;
 
 import es.progcipfpbatoi.exceptions.DatabaseErrorException;
+import es.progcipfpbatoi.modelo.entidades.producttypes.Product;
 import es.progcipfpbatoi.modelo.entidades.producttypes.types.*;
 import es.progcipfpbatoi.modelo.repositorios.InMemoryArchiveHistoryOrderRepository;
 import es.progcipfpbatoi.modelo.repositorios.InMemoryPendingOrderRepository;
@@ -8,10 +9,10 @@ import es.progcipfpbatoi.modelo.repositorios.ProductRepository;
 import es.progcipfpbatoi.utils.AlertMessages;
 import es.progcipfpbatoi.utils.Validator;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -22,7 +23,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class VistaNuevoProducto implements Initializable {
+public class VistaModificarProducto implements Initializable{
 
     @FXML
     private ComboBox<String> typeSelector;
@@ -47,29 +48,33 @@ public class VistaNuevoProducto implements Initializable {
     private ProductRepository productRepository;
     private InMemoryArchiveHistoryOrderRepository inMemoryArchiveHistoryOrderRepository;
 
-    public VistaNuevoProducto(ProductRepository productRepository, InMemoryArchiveHistoryOrderRepository inMemoryArchiveHistoryOrderRepository, InMemoryPendingOrderRepository inMemoryPendingOrderRepository,Initializable padreControler, String vistaPadre) {
+    private ArrayList<Product> products;
+
+    public VistaModificarProducto(ProductRepository productRepository) {
         this.productRepository = productRepository;
-        this.inMemoryArchiveHistoryOrderRepository = inMemoryArchiveHistoryOrderRepository;
-        this.inMemoryPendingOrderRepository = inMemoryPendingOrderRepository;
-        this.padreControler = padreControler;
-        this.vistaPadre = vistaPadre;
+        this.products = new ArrayList<>();
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        name.setText(products.get(0).getName());
+        prize.setText(String.valueOf(products.get(0).getPrize()));
+        discount.setText(String.valueOf(products.get(0).getPercentageDiscount()));
+        tax.setText(String.valueOf(products.get(0).getVat()));
+        ArrayList<String> typeProductNameArrayList = findProductsName();
+        typeSelector.setItems( FXCollections.observableArrayList( typeProductNameArrayList ));
     }
 
     @FXML
     public void confirmar(MouseEvent event) throws DatabaseErrorException {
         if ( algunFieldVacio() ) return;
         if ( algunFieldIncorrecto() ) return;
-        if ( nombreDuplicado() ) return;
         crearProducto();
         atras(event);
     }
 
-    private boolean nombreDuplicado() {
-        if ( this.productRepository.isNameExists( name.getText() ) ) {
-            AlertMessages.mostrarAlertError( "Ya existe la descripcion" );
-            return true;
-        }
-        return false;
+    public void añadirPedido(Product product){
+        products.add(product);
     }
 
     private boolean algunFieldIncorrecto() {
@@ -89,18 +94,20 @@ public class VistaNuevoProducto implements Initializable {
         return false;
     }
     @FXML
-    public void atras(MouseEvent event) {
+    void atras(MouseEvent event){
         try {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            ChangeScene.change(stage, padreControler, vistaPadre);
-        } catch (IOException e) {
-            e.printStackTrace();
+            VistaDetalleProducto vistaDetalleProducto = new VistaDetalleProducto(productRepository,inMemoryPendingOrderRepository,inMemoryArchiveHistoryOrderRepository);
+            vistaDetalleProducto.añadirPedido(products.get(0));
+            ChangeScene.change(stage, vistaDetalleProducto, "/vista/vista_detalle_producto.fxml");
+        } catch (IOException ex) {
+            ex.printStackTrace();
         }
     }
 
     private void crearProducto() throws DatabaseErrorException {
         if ( typeSelector.getSelectionModel().getSelectedItem().equals( Desert.class.getSimpleName() ) ) {
-            Desert desertNew = new Desert(String.valueOf(this.productRepository.findAll().size()+1), name.getText(),Float.valueOf(prize.getText()),Float.valueOf(discount.getText())/10000,Float.valueOf(tax.getText()),true);
+            Desert desertNew = new Desert(products.get(0).getCod(), name.getText(),Float.valueOf(prize.getText()),Float.valueOf(discount.getText())/10000,Float.valueOf(tax.getText()),true);
             try {
                 this.productRepository.save( desertNew );
             } catch ( DatabaseErrorException e ) {
@@ -109,7 +116,7 @@ public class VistaNuevoProducto implements Initializable {
                 throw new RuntimeException(e);
             }
         } else if ( typeSelector.getSelectionModel().getSelectedItem().equals( Sandwich.class.getSimpleName() ) ) {
-            Sandwich sandwichNew = new Sandwich(String.valueOf(this.productRepository.findAll().size()+1), name.getText(),Float.valueOf(prize.getText()),Float.valueOf(discount.getText())/10000,Float.valueOf(tax.getText()),true);
+            Sandwich sandwichNew = new Sandwich(products.get(0).getCod(), name.getText(),Float.valueOf(prize.getText()),Float.valueOf(discount.getText())/10000,Float.valueOf(tax.getText()),true);
             try {
                 this.productRepository.save( sandwichNew );
             } catch ( DatabaseErrorException e ) {
@@ -118,7 +125,7 @@ public class VistaNuevoProducto implements Initializable {
                 throw new RuntimeException(e);
             }
         } else if ( typeSelector.getSelectionModel().getSelectedItem().equals( Drink.class.getSimpleName() ) ) {
-            Drink drinkNew = new Drink(String.valueOf(this.productRepository.findAll().size()+1), name.getText(),Float.valueOf(prize.getText()),Float.valueOf(discount.getText())/10000,Float.valueOf(tax.getText()),true,true, Size.NORMAL);
+            Drink drinkNew = new Drink(products.get(0).getCod(), name.getText(),Float.valueOf(prize.getText()),Float.valueOf(discount.getText())/10000,Float.valueOf(tax.getText()),true,true, Size.NORMAL);
             try {
                 this.productRepository.save( drinkNew );
             } catch ( DatabaseErrorException e ) {
@@ -127,7 +134,7 @@ public class VistaNuevoProducto implements Initializable {
                 throw new RuntimeException(e);
             }
         } else if ( typeSelector.getSelectionModel().getSelectedItem().equals( Starter.class.getSimpleName() ) ) {
-            Starter starterNew = new Starter(String.valueOf(this.productRepository.findAll().size()+1), name.getText(),Float.valueOf(prize.getText()),Float.valueOf(discount.getText())/10000,Float.valueOf(tax.getText()),true);
+            Starter starterNew = new Starter(products.get(0).getCod(), name.getText(),Float.valueOf(prize.getText()),Float.valueOf(discount.getText())/10000,Float.valueOf(tax.getText()),true);
             try {
                 this.productRepository.save( starterNew );
             } catch (DatabaseErrorException | IOException e ) {
@@ -159,13 +166,6 @@ public class VistaNuevoProducto implements Initializable {
             return true;
         }
         return false;
-    }
-
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        ArrayList<String> typeProductNameArrayList = findProductsName();
-        typeSelector.setItems( FXCollections.observableArrayList( typeProductNameArrayList ) );
     }
 
     private static ArrayList<String> findProductsName() {

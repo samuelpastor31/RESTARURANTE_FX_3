@@ -5,7 +5,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="140.0" layoutY="42.0" text="DETALLE DEL PRODUCTO" textAlignment="CENTER">
@@ -18,27 +17,27 @@
             <Font name="System Bold" size="25.0" />
          </font>
       </Label>
-      <Label fx:id="tipo" layoutX="320.0" layoutY="104.0" text="Tipo" textAlignment="CENTER">
+      <Label fx:id="tipo" alignment="TOP_CENTER" layoutX="126.0" layoutY="104.0" prefHeight="30.0" prefWidth="472.0" text="Tipo" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
       </Label>
-      <Label fx:id="nombre" layoutX="115.0" layoutY="163.0" prefHeight="30.0" prefWidth="472.0" text="Nombre" textAlignment="CENTER">
+      <Label fx:id="nombre" alignment="TOP_CENTER" layoutX="115.0" layoutY="163.0" prefHeight="30.0" prefWidth="472.0" text="Nombre" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
       </Label>
-      <Label fx:id="precio" layoutX="306.0" layoutY="214.0" text="Precio" textAlignment="CENTER">
+      <Label fx:id="precio" alignment="TOP_CENTER" layoutX="152.0" layoutY="214.0" prefHeight="30.0" prefWidth="387.0" text="Precio" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
       </Label>
-      <Label fx:id="descuento" layoutX="276.0" layoutY="270.0" text="Descuento" textAlignment="CENTER">
+      <Label fx:id="descuento" alignment="TOP_CENTER" layoutX="146.0" layoutY="270.0" prefHeight="30.0" prefWidth="426.0" text="Descuento" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
       </Label>
-      <Label fx:id="iva" layoutX="326.0" layoutY="331.0" text="IVA" textAlignment="CENTER">
+      <Label fx:id="iva" alignment="TOP_CENTER" layoutX="118.0" layoutY="331.0" prefHeight="30.0" prefWidth="438.0" text="IVA" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
@@ -48,7 +47,7 @@
             <Font name="System Bold" size="25.0" />
          </font>
       </Label>
-      <Button fx:id="botonModificar" layoutX="40.0" layoutY="456.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" text="Modificar" />
+      <Button fx:id="botonModificar" layoutX="40.0" layoutY="456.0" mnemonicParsing="false" onMouseClicked="#modificar" prefHeight="30.0" prefWidth="200.0" text="Modificar" />
       <Button fx:id="botonAtras" layoutX="463.0" layoutY="456.0" mnemonicParsing="false" onMouseClicked="#atras" prefHeight="30.0" prefWidth="200.0" text="Atras" />
       <Button fx:id="botonDarBaja" layoutX="251.0" layoutY="456.0" mnemonicParsing="false" onMouseClicked="#darBaja" prefHeight="30.0" prefWidth="200.0" text="Dar de Baja" />
    </children>

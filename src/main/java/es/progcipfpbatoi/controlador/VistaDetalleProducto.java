@@ -5,6 +5,7 @@ import es.progcipfpbatoi.modelo.entidades.producttypes.Product;
 import es.progcipfpbatoi.modelo.repositorios.InMemoryArchiveHistoryOrderRepository;
 import es.progcipfpbatoi.modelo.repositorios.InMemoryPendingOrderRepository;
 import es.progcipfpbatoi.modelo.repositorios.ProductRepository;
+import es.progcipfpbatoi.utils.AlertMessages;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -52,9 +53,7 @@ public class VistaDetalleProducto implements Initializable {
 
     private ArrayList<Product> products;
 
-    public VistaDetalleProducto(Initializable padreControler, String vistaPadre, ProductRepository productRepository, InMemoryPendingOrderRepository inMemoryPendingOrderRepository, InMemoryArchiveHistoryOrderRepository inMemoryArchiveHistoryOrderRepository) {
-        this.padreControler = padreControler;
-        this.vistaPadre = vistaPadre;
+    public VistaDetalleProducto( ProductRepository productRepository, InMemoryPendingOrderRepository inMemoryPendingOrderRepository, InMemoryArchiveHistoryOrderRepository inMemoryArchiveHistoryOrderRepository) {
         this.productRepository = productRepository;
         this.inMemoryPendingOrderRepository = inMemoryPendingOrderRepository;
         this.inMemoryArchiveHistoryOrderRepository = inMemoryArchiveHistoryOrderRepository;
@@ -94,31 +93,34 @@ public class VistaDetalleProducto implements Initializable {
             if (selectedProduct != null) {
                 try {
                     selectedProduct.setDadoAlta(false);
-                    productRepository.save(selectedProduct); // cambiar estado a "dado de baja" en memoria
+                    productRepository.save(selectedProduct);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-                mostrarAlerta("Producto dado de baja");
+                AlertMessages.mostrarAlertWarning("Producto dado de baja");
                 atras(event);
             }
         } catch (DatabaseErrorException ex) {
-           mostrarAlertaError(ex.getMessage());
+           AlertMessages.mostrarAlertError(ex.getMessage());
         }
     }
 
-    private void mostrarAlerta(String mensaje) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setHeaderText(null);
-        alert.setContentText(mensaje);
-        alert.showAndWait();
+    @FXML
+    public void modificar(MouseEvent event) {
+        Product product = products.get(0);
+        if (product != null) {
+
+            try {
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                VistaModificarProducto vistaModificarProducto = new VistaModificarProducto(productRepository);
+                vistaModificarProducto.añadirPedido(product);
+                ChangeScene.change(stage, vistaModificarProducto, "/vista/vista_modificar_producto.fxml");
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
     }
 
-    private void mostrarAlertaError(String mensaje) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setHeaderText(null);
-        alert.setContentText(mensaje);
-        alert.showAndWait();
-    }
 
 
 

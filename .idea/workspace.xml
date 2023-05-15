@@ -5,10 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fde70d2b-4cbc-4910-af95-016ebcfdff91" name="Changes" comment="acabado">
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/controlador/VistaModificarProducto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/vista/vista_modificar_producto.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/controlador/VistaDetalleProducto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/controlador/VistaDetalleProducto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/controlador/VistaGestionProductos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/controlador/VistaGestionProductos.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/controlador/VistaNuevoProducto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/controlador/VistaNuevoProducto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vista/vista_nuevo_producto.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vista/vista_nuevo_producto.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/database/productos.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/database/productos.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vista/vista_detalle_producto.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vista/vista_detalle_producto.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,7 +179,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684145781118</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="acabado">
+      <created>1684148464472</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1684148464472</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

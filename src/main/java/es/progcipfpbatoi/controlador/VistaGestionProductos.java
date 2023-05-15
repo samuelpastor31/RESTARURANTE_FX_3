@@ -118,7 +118,7 @@ public class VistaGestionProductos implements Initializable {
 
         try {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            VistaNuevoProducto vistaNuevoProducto = new VistaNuevoProducto(productRepository,inMemoryArchiveHistoryOrderRepository,inMemoryPendingOrderRepository);
+            VistaNuevoProducto vistaNuevoProducto = new VistaNuevoProducto(productRepository,inMemoryArchiveHistoryOrderRepository,inMemoryPendingOrderRepository,this,"/vista/vista_gestion_productos.fxml");
             ChangeScene.change(stage, vistaNuevoProducto, "/vista/vista_nuevo_producto.fxml");
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -132,7 +132,7 @@ public class VistaGestionProductos implements Initializable {
 
             try {
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                VistaDetalleProducto vistaDetalleProducto = new VistaDetalleProducto(this,"/vista/vista_gestion_productos.fxml", productRepository,  inMemoryPendingOrderRepository,inMemoryArchiveHistoryOrderRepository);
+                VistaDetalleProducto vistaDetalleProducto = new VistaDetalleProducto(productRepository,  inMemoryPendingOrderRepository,inMemoryArchiveHistoryOrderRepository);
                 vistaDetalleProducto.añadirPedido(product);
                 ChangeScene.change(stage, vistaDetalleProducto, "/vista/vista_detalle_producto.fxml");
             } catch (IOException ex) {
