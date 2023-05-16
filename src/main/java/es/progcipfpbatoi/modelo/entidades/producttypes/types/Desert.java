@@ -24,6 +24,10 @@ public class Desert extends Product {
         return "DESERT";
     }
 
+    public HashSet<Characteristic> getCharacteristic() {
+        return characteristic;
+    }
+
     @Override
     public String getExtras() {
         return String.format("%s", characteristic);

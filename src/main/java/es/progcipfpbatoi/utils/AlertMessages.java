@@ -15,7 +15,7 @@ public class AlertMessages {
     }
 
     public static void mostrarAlertWarning(String msg) {
-        Alert alert = new Alert( Alert.AlertType.WARNING );
+        Alert alert = new Alert( Alert.AlertType.INFORMATION );
         alert.setHeaderText( null );
         alert.setTitle( "Aviso" );
         alert.setContentText( msg );

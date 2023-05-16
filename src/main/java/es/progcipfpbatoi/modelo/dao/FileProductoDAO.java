@@ -63,14 +63,10 @@ public class FileProductoDAO implements ProductosDAO{
                 float iva = Float.parseFloat(fields[IVA]);
                 Boolean estado = Boolean.valueOf(fields[ESTADO]);
 
-                boolean rellenable = false;
-                if (fields.length > RELLENABLE) {
-                    rellenable = Boolean.valueOf(fields[RELLENABLE]);
-                }
-
                 Product product;
                 switch (tipo) {
                     case "DRINK":
+                        Boolean rellenable = Boolean.parseBoolean(fields[RELLENABLE]);
                         Size tamanyo = Size.valueOf(fields[TAMANYO]);
                         product = new Drink(id, descripcion, precio, descuento, iva, estado, rellenable, tamanyo);
                         break;
@@ -78,7 +74,8 @@ public class FileProductoDAO implements ProductosDAO{
                         product = new Sandwich(id, descripcion, precio, descuento, iva, estado);
                         break;
                     case "DESERT":
-                        product = new Desert(id, descripcion, precio, descuento, iva, estado);
+                        Characteristic characteristic = Characteristic.valueOf(fields[RELLENABLE]);
+                        product = new Desert(id, descripcion, precio, descuento, iva, estado, characteristic);
                         break;
                     case "STARTER":
                         product = new Starter(id, descripcion, precio, descuento, iva, estado);
@@ -184,8 +181,18 @@ public class FileProductoDAO implements ProductosDAO{
             Drink drink = (Drink) product;
             fields.add(String.valueOf(drink.isRefillable()));
             fields.add(String.valueOf(drink.getSize()));
+        } else if (product instanceof Desert) {
+            Desert desert = (Desert) product;
+            fields.add(quitarCorchetes(desert));
         }
         return String.join(FIELD_SEPARATOR, fields);
+    }
+
+    private String quitarCorchetes(Desert desert){
+        String conCorchetes = desert.getCharacteristic().toString();
+        String nuevaCadena = conCorchetes.substring(1, conCorchetes.length() - 1);
+        return nuevaCadena;
+
     }
     private void append(Product product) throws IOException {
         try (BufferedWriter bufferedWriter = getWriter(true)) {
@@ -249,14 +256,10 @@ public class FileProductoDAO implements ProductosDAO{
         float iva = Float.parseFloat(fields[IVA]);
         boolean estado = Boolean.parseBoolean(fields[ESTADO]);
 
-        boolean rellenable = false;
-        if (fields.length > RELLENABLE) {
-            rellenable = Boolean.parseBoolean(fields[RELLENABLE]);
-        }
-
         Product product;
         switch (tipo) {
             case "DRINK":
+                 Boolean rellenable = Boolean.parseBoolean(fields[RELLENABLE]);
                 Size tamanyo = Size.valueOf(fields[TAMANYO]);
                 product = new Drink(id, descripcion, precio, descuento, iva, estado, rellenable, tamanyo);
                 break;
@@ -264,7 +267,8 @@ public class FileProductoDAO implements ProductosDAO{
                 product = new Sandwich(id, descripcion, precio, descuento, iva, estado);
                 break;
             case "DESERT":
-                product = new Desert(id, descripcion, precio, descuento, iva, estado);
+                Characteristic characteristic = Characteristic.valueOf(fields[RELLENABLE]);
+                product = new Desert(id, descripcion, precio, descuento, iva, estado, characteristic);
                 break;
             case "STARTER":
                 product = new Starter(id, descripcion, precio, descuento, iva, estado);

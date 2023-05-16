@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fde70d2b-4cbc-4910-af95-016ebcfdff91" name="Changes" comment="modificar acabado">
+    <list default="true" id="fde70d2b-4cbc-4910-af95-016ebcfdff91" name="Changes" comment="con imagenes por tipo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/controlador/VistaDetalleProducto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/controlador/VistaDetalleProducto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/controlador/VistaGestionProductos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/controlador/VistaGestionProductos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vista/vista_detalle_producto.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vista/vista_detalle_producto.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/controlador/VistaModificarProducto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/controlador/VistaModificarProducto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo/dao/FileProductoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo/dao/FileProductoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo/entidades/producttypes/types/Characteristic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo/entidades/producttypes/types/Characteristic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo/entidades/producttypes/types/Desert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo/entidades/producttypes/types/Desert.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/utils/AlertMessages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/utils/AlertMessages.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/database/productos.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/database/productos.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,12 +199,20 @@
       <option name="project" value="LOCAL" />
       <updated>1684166638978</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="con imagenes por tipo">
+      <created>1684233461889</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1684233461889</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="acabado" />
     <MESSAGE value="modificar acabado" />
-    <option name="LAST_COMMIT_MESSAGE" value="modificar acabado" />
+    <MESSAGE value="con imagenes por tipo" />
+    <option name="LAST_COMMIT_MESSAGE" value="con imagenes por tipo" />
   </component>
 </project>

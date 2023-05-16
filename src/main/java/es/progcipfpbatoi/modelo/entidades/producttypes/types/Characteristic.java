@@ -1,5 +1,15 @@
 package es.progcipfpbatoi.modelo.entidades.producttypes.types;
 
 public enum Characteristic {
-    DIABETIC_SUITABLE, CELIAC_SUITABLE
+    DIABETIC_SUITABLE {
+        @Override
+        public String toString(){
+            return "DIABETIC_SUITABLE";
+        }
+    }, CELIAC_SUITABLE {
+        @Override
+        public String toString(){
+            return "CELIAC_SUITABLE";
+        }
+    }
 }

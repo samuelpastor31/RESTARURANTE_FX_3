@@ -107,7 +107,7 @@ public class VistaModificarProducto implements Initializable{
 
     private void crearProducto() throws DatabaseErrorException {
         if ( typeSelector.getSelectionModel().getSelectedItem().equals( Desert.class.getSimpleName() ) ) {
-            Desert desertNew = new Desert(products.get(0).getCod(), name.getText(),Float.valueOf(prize.getText()),Float.valueOf(discount.getText())/10000,Float.valueOf(tax.getText()),true);
+            Desert desertNew = new Desert(products.get(0).getCod(), name.getText(),Float.valueOf(prize.getText()),Float.valueOf(discount.getText())/10000,Float.valueOf(tax.getText()),true,Characteristic.CELIAC_SUITABLE);
             try {
                 this.productRepository.save( desertNew );
             } catch ( DatabaseErrorException e ) {
