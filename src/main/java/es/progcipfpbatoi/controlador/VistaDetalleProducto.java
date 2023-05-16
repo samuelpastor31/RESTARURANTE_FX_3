@@ -12,10 +12,13 @@ import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -43,6 +46,9 @@ public class VistaDetalleProducto implements Initializable {
     @FXML
     private Button botonAtras;
 
+    @FXML
+    private ImageView imagenTipo;
+
     private Initializable padreControler;
 
     private String vistaPadre;
@@ -69,6 +75,36 @@ public class VistaDetalleProducto implements Initializable {
         descuento.setText(String.format("%.0f%% de descuento",(products.get(0).getPercentageDiscount())));
         iva.setText(String.format("%.0f%% de iva", (products.get(0).getVat())));
         pvp.setText(pvp.getText()+" "+(String.format("%.0f€",products.get(0).getPrize())));
+        if (products.get(0).getTipo().equals("SANDWICH")){
+            try {
+                imagenTipo.setImage(new Image(getPathImage("/images/sandwich.png")));
+            } catch (URISyntaxException e) {
+                throw new RuntimeException(e);
+            }
+        }else if (products.get(0).getTipo().equals("DRINK")){
+            try {
+                imagenTipo.setImage(new Image(getPathImage("/images/drink.png")));
+            } catch (URISyntaxException e) {
+                throw new RuntimeException(e);
+            }
+        }else if (products.get(0).getTipo().equals("DESERT")){
+            try {
+                imagenTipo.setImage(new Image(getPathImage("/images/desert.png")));
+            } catch (URISyntaxException e) {
+                throw new RuntimeException(e);
+            }
+        }else if (products.get(0).getTipo().equals("STARTER")){
+            try {
+                imagenTipo.setImage(new Image(getPathImage("/images/starter.png")));
+            } catch (URISyntaxException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    private String getPathImage(String fileName) throws URISyntaxException {
+
+        return getClass().getResource(fileName).toURI().toString();
     }
 
     @FXML

@@ -54,7 +54,7 @@ public class VistaGestionProductos implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ObservableList<Product> products = FXCollections.observableArrayList(getData());
 
-        products.sort(Comparator.comparing(Product::getTipo).thenComparing(Product::getCod));
+        products.sort(Comparator.comparing(Product::getTipo).thenComparing(Product::getName));
 
         productListView.setItems(products);
         desactivarButtons();

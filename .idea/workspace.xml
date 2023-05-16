@@ -6,10 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="fde70d2b-4cbc-4910-af95-016ebcfdff91" name="Changes" comment="modificar acabado">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/controlador/VistaDetalleProducto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/controlador/VistaDetalleProducto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/controlador/VistaGestionProductos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/controlador/VistaGestionProductos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo/dao/FileProductoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo/dao/FileProductoDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo/entidades/producttypes/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/progcipfpbatoi/modelo/entidades/producttypes/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/database/productos.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/database/productos.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vista/vista_detalle_producto.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vista/vista_detalle_producto.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,7 +189,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684153311159</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="modificar acabado">
+      <created>1684166638977</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1684166638978</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
