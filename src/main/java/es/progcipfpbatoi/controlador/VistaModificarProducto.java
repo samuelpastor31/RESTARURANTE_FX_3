@@ -58,7 +58,7 @@ public class VistaModificarProducto implements Initializable{
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         name.setText(products.get(0).getName());
-        prize.setText(String.valueOf(products.get(0).getPrize()));
+        prize.setText(String.valueOf(products.get(0).getOnlyPrize()));
         discount.setText(String.valueOf(products.get(0).getPercentageDiscount()));
         tax.setText(String.valueOf(products.get(0).getVat()));
         ArrayList<String> typeProductNameArrayList = findProductsName();
@@ -107,7 +107,7 @@ public class VistaModificarProducto implements Initializable{
 
     private void crearProducto() throws DatabaseErrorException {
         if ( typeSelector.getSelectionModel().getSelectedItem().equals( Desert.class.getSimpleName() ) ) {
-            Desert desertNew = new Desert(products.get(0).getCod(), name.getText(),Float.valueOf(prize.getText()),Float.valueOf(discount.getText())/10000,Float.valueOf(tax.getText()),true,Characteristic.CELIAC_SUITABLE);
+            Desert desertNew = new Desert(products.get(0).getCod(), name.getText(),Float.valueOf(prize.getText()),Float.valueOf(discount.getText())/100,Float.valueOf(tax.getText()),true,Characteristic.CELIAC_SUITABLE);
             try {
                 this.productRepository.save( desertNew );
             } catch ( DatabaseErrorException e ) {
@@ -116,7 +116,7 @@ public class VistaModificarProducto implements Initializable{
                 throw new RuntimeException(e);
             }
         } else if ( typeSelector.getSelectionModel().getSelectedItem().equals( Sandwich.class.getSimpleName() ) ) {
-            Sandwich sandwichNew = new Sandwich(products.get(0).getCod(), name.getText(),Float.valueOf(prize.getText()),Float.valueOf(discount.getText())/10000,Float.valueOf(tax.getText()),true);
+            Sandwich sandwichNew = new Sandwich(products.get(0).getCod(), name.getText(),Float.valueOf(prize.getText()),Float.valueOf(discount.getText())/100,Float.valueOf(tax.getText()),true);
             try {
                 this.productRepository.save( sandwichNew );
             } catch ( DatabaseErrorException e ) {
@@ -125,7 +125,7 @@ public class VistaModificarProducto implements Initializable{
                 throw new RuntimeException(e);
             }
         } else if ( typeSelector.getSelectionModel().getSelectedItem().equals( Drink.class.getSimpleName() ) ) {
-            Drink drinkNew = new Drink(products.get(0).getCod(), name.getText(),Float.valueOf(prize.getText()),Float.valueOf(discount.getText())/10000,Float.valueOf(tax.getText()),true,true, Size.NORMAL);
+            Drink drinkNew = new Drink(products.get(0).getCod(), name.getText(),Float.valueOf(prize.getText()),Float.valueOf(discount.getText())/100,Float.valueOf(tax.getText()),true,true, Size.NORMAL);
             try {
                 this.productRepository.save( drinkNew );
             } catch ( DatabaseErrorException e ) {
@@ -134,7 +134,7 @@ public class VistaModificarProducto implements Initializable{
                 throw new RuntimeException(e);
             }
         } else if ( typeSelector.getSelectionModel().getSelectedItem().equals( Starter.class.getSimpleName() ) ) {
-            Starter starterNew = new Starter(products.get(0).getCod(), name.getText(),Float.valueOf(prize.getText()),Float.valueOf(discount.getText())/10000,Float.valueOf(tax.getText()),true);
+            Starter starterNew = new Starter(products.get(0).getCod(), name.getText(),Float.valueOf(prize.getText()),Float.valueOf(discount.getText())/100,Float.valueOf(tax.getText()),true);
             try {
                 this.productRepository.save( starterNew );
             } catch (DatabaseErrorException | IOException e ) {

@@ -73,12 +73,15 @@ public class VistaGestionProductos implements Initializable {
         try {
             Product selectedProduct = productListView.getSelectionModel().getSelectedItem();
 
-            selectedProduct.setDadoAlta(false);
-            productRepository.save(selectedProduct);
+            if (AlertMessages.mostrarAlertaConfirmacion("Baja producto","¿Dar baja producto?")==true) {
+                selectedProduct.setDadoAlta(false);
+                productRepository.save(selectedProduct);
 
-            ObservableList<Product> productsAlta = productListView.getItems();
-            productsAlta.remove(selectedProduct);
-            AlertMessages.mostrarAlertWarning("Producto dado de baja");
+                ObservableList<Product> productsAlta = productListView.getItems();
+                productsAlta.remove(selectedProduct);
+                AlertMessages.mostrarAlert(" ","Producto dado de baja", Alert.AlertType.INFORMATION);
+            }
+
 
             desactivarButtons();
         }catch (DatabaseErrorException ex) {

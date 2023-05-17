@@ -11,7 +11,6 @@ import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -100,7 +99,7 @@ public class VistaNuevoProducto implements Initializable {
 
     private void crearProducto() throws DatabaseErrorException {
         if ( typeSelector.getSelectionModel().getSelectedItem().equals( Desert.class.getSimpleName() ) ) {
-            Desert desertNew = new Desert(String.valueOf(this.productRepository.findAll().size()+1), name.getText(),Float.valueOf(prize.getText()),Float.valueOf(discount.getText())/10000,Float.valueOf(tax.getText()),true);
+            Desert desertNew = new Desert(String.valueOf(this.productRepository.findAll().size()+1), name.getText(),Float.valueOf(prize.getText()),Float.valueOf(discount.getText())/100,Float.valueOf(tax.getText()),true,Characteristic.NO_APTO);
             try {
                 this.productRepository.save( desertNew );
             } catch ( DatabaseErrorException e ) {
@@ -109,7 +108,7 @@ public class VistaNuevoProducto implements Initializable {
                 throw new RuntimeException(e);
             }
         } else if ( typeSelector.getSelectionModel().getSelectedItem().equals( Sandwich.class.getSimpleName() ) ) {
-            Sandwich sandwichNew = new Sandwich(String.valueOf(this.productRepository.findAll().size()+1), name.getText(),Float.valueOf(prize.getText()),Float.valueOf(discount.getText())/10000,Float.valueOf(tax.getText()),true);
+            Sandwich sandwichNew = new Sandwich(String.valueOf(this.productRepository.findAll().size()+1), name.getText(),Float.valueOf(prize.getText()),Float.valueOf(discount.getText())/100,Float.valueOf(tax.getText()),true);
             try {
                 this.productRepository.save( sandwichNew );
             } catch ( DatabaseErrorException e ) {
@@ -118,7 +117,7 @@ public class VistaNuevoProducto implements Initializable {
                 throw new RuntimeException(e);
             }
         } else if ( typeSelector.getSelectionModel().getSelectedItem().equals( Drink.class.getSimpleName() ) ) {
-            Drink drinkNew = new Drink(String.valueOf(this.productRepository.findAll().size()+1), name.getText(),Float.valueOf(prize.getText()),Float.valueOf(discount.getText())/10000,Float.valueOf(tax.getText()),true,true, Size.NORMAL);
+            Drink drinkNew = new Drink(String.valueOf(this.productRepository.findAll().size()+1), name.getText(),Float.valueOf(prize.getText()),Float.valueOf(discount.getText())/100,Float.valueOf(tax.getText()),true,true, Size.NORMAL);
             try {
                 this.productRepository.save( drinkNew );
             } catch ( DatabaseErrorException e ) {
@@ -127,7 +126,7 @@ public class VistaNuevoProducto implements Initializable {
                 throw new RuntimeException(e);
             }
         } else if ( typeSelector.getSelectionModel().getSelectedItem().equals( Starter.class.getSimpleName() ) ) {
-            Starter starterNew = new Starter(String.valueOf(this.productRepository.findAll().size()+1), name.getText(),Float.valueOf(prize.getText()),Float.valueOf(discount.getText())/10000,Float.valueOf(tax.getText()),true);
+            Starter starterNew = new Starter(String.valueOf(this.productRepository.findAll().size()+1), name.getText(),Float.valueOf(prize.getText()),Float.valueOf(discount.getText())/100,Float.valueOf(tax.getText()),true);
             try {
                 this.productRepository.save( starterNew );
             } catch (DatabaseErrorException | IOException e ) {

@@ -1,7 +1,9 @@
-1;SANDWICH;lechugas;0.83199996;0.2;0.0;true
-2;DRINK;Coca-cola;1.1340001;0.2;0.1;false;true;NORMAL
-3;DESERT;Pastel de Queso;17.5692;0.0;0.21;true;CELIAC_SUITABLE
-4;DRINK;Mentira;4.0;0.0;0.0;true;false;NORMAL
+1;SANDWICH;lechugas;1.6;0.2;0.0;true
+2;DRINK;Coca-cola;1.8000001;0.2;0.1;true;true;NORMAL
+3;DESERT;Pastel de Queso;3.63;0.0;0.21;false;CELIAC_SUITABLE
+4;DRINK;Mentira;4.0;0.0;0.0;true;true;NORMAL
 5;SANDWICH;hola;3.0;0.0;0.0;true
 6;STARTER;Cacahuets;4.0;0.0;0.0;true
-7;DRINK;Whiskey con cola;3.5;0.0;0.0;false;true;NORMAL
+7;DRINK;Whiskey con cola;3.5;0.0;0.0;true;true;NORMAL
+8;DESERT;pastel;4.0;0.0;0.0;false;CELIAC_SUITABLE
+9;DESERT;cachuets;3.0;0.0;0.0;true;DIABETIC_SUITABLE

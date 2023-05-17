@@ -35,8 +35,8 @@ public abstract class Product {
 
     @Override
     public String toString() {
-        return String.format("%s Tipo: %s, Descuento: %.2f%%, Precio: %.2f€, Precio con IVA: %.2f€, Dado alta: %s",
-                getName(), getTipo(), getPercentageDiscount(), getPrizeWithoutDiscount(), getPrize(), isDadoAlta());
+        return String.format("%s Tipo: %s, IVA: %.2f%%, Descuento: %.2f%%, Precio: %.2f€, Precio con IVA y Descuento : %.2f€, Dado alta: %s",
+                getName(), getTipo(),getVat(), getPercentageDiscount(), getOnlyPrize(), getPrize(), isDadoAlta());
     }
     public boolean isDadoAlta() {
         return dadoAlta;
@@ -73,6 +73,10 @@ public abstract class Product {
 
     public String getCod() {
         return this.cod;
+    }
+
+    public float getOnlyPrize(){
+        return prize;
     }
 
     public void setDadoAlta(boolean dadoAlta) {

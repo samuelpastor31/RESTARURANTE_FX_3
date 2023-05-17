@@ -11,5 +11,10 @@ public enum Characteristic {
         public String toString(){
             return "CELIAC_SUITABLE";
         }
+    }, NO_APTO {
+        @Override
+        public String toString() {
+            return "NO_APTO";
+        }
     }
 }

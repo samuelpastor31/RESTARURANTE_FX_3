@@ -168,7 +168,7 @@ public class FileProductoDAO implements ProductosDAO{
         return false;
     }
 
-    private String getRegisterFromTask(Product product) {
+    private String getRegisterFromProduct(Product product) {
         List<String> fields = new ArrayList<>();
         fields.add(String.valueOf(product.getCod()));
         fields.add(String.valueOf(product.getTipo()));
@@ -196,7 +196,7 @@ public class FileProductoDAO implements ProductosDAO{
     }
     private void append(Product product) throws IOException {
         try (BufferedWriter bufferedWriter = getWriter(true)) {
-            bufferedWriter.write(getRegisterFromTask(product));
+            bufferedWriter.write(getRegisterFromProduct(product));
             bufferedWriter.newLine();
         }
     }
@@ -214,10 +214,10 @@ public class FileProductoDAO implements ProductosDAO{
         try (BufferedWriter bufferedWriter = getWriter(false)) {
             for (Product product1 : products) {
                 if (!product1.containsThisCode(product.getCod())) {
-                    bufferedWriter.write(getRegisterFromTask(product1));
+                    bufferedWriter.write(getRegisterFromProduct(product1));
                     bufferedWriter.newLine();
                 } else if (update) {
-                    bufferedWriter.write(getRegisterFromTask(product));
+                    bufferedWriter.write(getRegisterFromProduct(product));
                     bufferedWriter.newLine();
                 }
             }
