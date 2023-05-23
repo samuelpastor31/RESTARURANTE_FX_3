@@ -42,6 +42,10 @@ public class Order {
         this.createdOn = date;
     }
 
+    public LocalDateTime getFechaPedido() {
+        return createdOn;
+    }
+
     public void addNewProduct(Product product) {
         products.add(product);
     }

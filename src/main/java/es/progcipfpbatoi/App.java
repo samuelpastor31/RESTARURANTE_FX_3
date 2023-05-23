@@ -4,6 +4,7 @@ import es.progcipfpbatoi.controlador.ChangeScene;
 import es.progcipfpbatoi.controlador.VistaPrincipalControler;
 import es.progcipfpbatoi.modelo.dao.FileProductoDAO;
 import es.progcipfpbatoi.modelo.dao.ProductosDAO;
+import es.progcipfpbatoi.modelo.dao.SQLProductoDAO;
 import es.progcipfpbatoi.modelo.repositorios.InMemoryArchiveHistoryOrderRepository;
 import es.progcipfpbatoi.modelo.repositorios.InMemoryPendingOrderRepository;
 import es.progcipfpbatoi.modelo.repositorios.ProductRepository;
@@ -32,7 +33,8 @@ public class App extends Application {
 
         InMemoryPendingOrderRepository inMemoryPendingOrderRepository = new InMemoryPendingOrderRepository();
         FileProductoDAO fileProductoDAO = new FileProductoDAO();
-        ProductRepository productRepository = new ProductRepository(fileProductoDAO);
+        SQLProductoDAO sqlProductoDAO = new SQLProductoDAO();
+        ProductRepository productRepository = new ProductRepository(sqlProductoDAO);
 
         InMemoryArchiveHistoryOrderRepository inMemoryArchiveHistoryOrderRepository = new InMemoryArchiveHistoryOrderRepository();
         FXMLLoader loader = new FXMLLoader();

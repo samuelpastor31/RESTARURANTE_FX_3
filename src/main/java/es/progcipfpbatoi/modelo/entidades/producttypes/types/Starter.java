@@ -20,6 +20,11 @@ public class Starter extends Product {
     }
 
     @Override
+    public int getTipoBD() {
+        return 2;
+    }
+
+    @Override
     public String getExtras() {
         return String.format("Raciones: %s", ration);
     }

@@ -2,17 +2,15 @@ package es.progcipfpbatoi.modelo.repositorios;
 
 
 import es.progcipfpbatoi.exceptions.NotFoundException;
+import es.progcipfpbatoi.modelo.dao.OrderDao;
 import es.progcipfpbatoi.modelo.entidades.Order;
-import es.progcipfpbatoi.modelo.entidades.producttypes.Product;
-import es.progcipfpbatoi.modelo.entidades.producttypes.types.Desert;
-import es.progcipfpbatoi.modelo.entidades.producttypes.types.Drink;
 import es.progcipfpbatoi.utils.DateConversion;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InMemoryArchiveHistoryOrderRepository implements OrderRepository{
+public class InMemoryArchiveHistoryOrderRepository implements OrderDao {
 
     protected ArrayList<Order> orderList;
 

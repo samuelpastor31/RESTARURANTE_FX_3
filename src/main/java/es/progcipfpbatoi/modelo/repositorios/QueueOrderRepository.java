@@ -1,8 +1,9 @@
 package es.progcipfpbatoi.modelo.repositorios;
 
+import es.progcipfpbatoi.modelo.dao.OrderDao;
 import es.progcipfpbatoi.modelo.entidades.Order;
 
-public interface QueueOrderRepository extends OrderRepository{
+public interface QueueOrderRepository extends OrderDao {
 
         Order getNext();
 

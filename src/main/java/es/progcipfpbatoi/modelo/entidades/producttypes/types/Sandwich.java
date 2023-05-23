@@ -12,4 +12,9 @@ public class Sandwich extends Product {
     public String getTipo() {
         return "SANDWICH";
     }
+
+    @Override
+    public int getTipoBD() {
+        return 3;
+    }
 }

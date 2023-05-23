@@ -176,5 +176,4 @@ public class VistaModificarProducto implements Initializable{
         typeProductNameArrayList.add( Starter.class.getSimpleName() );
         return typeProductNameArrayList;
     }
-
 }

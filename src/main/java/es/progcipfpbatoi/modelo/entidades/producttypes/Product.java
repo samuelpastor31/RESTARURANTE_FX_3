@@ -18,6 +18,8 @@ public abstract class Product {
 
     private String tipo;
 
+    private int tipoBD;
+
     public Product(String cod, String name, float prize, float disccount, float vat,boolean dadoAlta) {
         this.cod =  cod;
         this.name = name;
@@ -26,6 +28,8 @@ public abstract class Product {
         this.vat = vat;
         this.dadoAlta = dadoAlta;
     }
+
+    public abstract int getTipoBD();
 
     public abstract String getTipo();
 

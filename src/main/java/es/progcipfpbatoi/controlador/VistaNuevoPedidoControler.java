@@ -56,15 +56,9 @@ public class VistaNuevoPedidoControler implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             listViewPedidos.setItems(getData());
-            listViewPedidos.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+            listViewPedidos.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
             listViewPedidos.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
                 actualizarBotonConfirmar();
-            });
-            datePickerFecha.setEditable(false);
-            datePickerFecha.setOnMouseClicked(e -> {
-                if (!datePickerFecha.isEditable()) {
-                    datePickerFecha.hide();
-                }
             });
         }catch (DatabaseErrorException ex) {
             // Mostrar una alerta
@@ -108,11 +102,8 @@ public class VistaNuevoPedidoControler implements Initializable {
             for (Product product : listViewPedidos.getSelectionModel().getSelectedItems()) {
                 order.addNewProduct(product);
             }
-            if (checkBox.isSelected() && datePickerFecha.getValue() != null) {
-                order.setCreatedOn(datePickerFecha.getValue().atStartOfDay());
-            } else {
                 order.setCreatedOn(LocalDateTime.now());
-            }
+
             inMemoryPendingOrderRepository.add(order);
             mostrarAlerta("Pedido creado correctamente");
 

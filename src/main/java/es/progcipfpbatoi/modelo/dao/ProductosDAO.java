@@ -27,10 +27,11 @@ public interface ProductosDAO {
      * @param product
      * @throws DatabaseErrorException
      */
-    void save(Product product) throws DatabaseErrorException, IOException;
+    void  save(Product product) throws DatabaseErrorException, IOException;
 
     boolean remove(int id) throws DatabaseErrorException, NotFoundException;
 
 
     boolean isNameExists(String productName);
+
 }

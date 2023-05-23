@@ -20,6 +20,10 @@ public class Drink extends Product {
         this.size = size;
     }
 
+    @Override
+    public int getTipoBD() {
+        return 1;
+    }
     public Size getSize() {
         return size;
     }

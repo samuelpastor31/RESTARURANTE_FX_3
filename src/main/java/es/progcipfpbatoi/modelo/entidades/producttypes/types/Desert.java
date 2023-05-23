@@ -20,6 +20,11 @@ public class Desert extends Product {
     }
 
     @Override
+    public int getTipoBD() {
+        return 4;
+    }
+
+    @Override
     public String getTipo() {
         return "DESERT";
     }
